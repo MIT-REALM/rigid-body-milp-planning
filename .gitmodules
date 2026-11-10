@@ -1,0 +1,3 @@
+[submodule "dependencies/PythonCDT"]
+	path = dependencies/PythonCDT
+	url = https://github.com/artem-ogre/PythonCDT.git

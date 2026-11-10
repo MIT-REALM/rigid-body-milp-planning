@@ -1,0 +1,28 @@
+# Optional dependencies, one group per baseline planner. None of these are needed
+# for the method in the paper -- install only the baselines you want to compare
+# against. `environment.AVAILABLE` and `baseline.AVAILABLE` report which ones
+# were importable in the current interpreter.
+#
+# Install on top of requirements.txt:
+#     pip install -r requirements-baselines.txt
+
+-r requirements.txt
+
+# --- GCS baseline (method 'gcs') and the C-IRIS region computation -----------
+# Also needs a Mosek licence (already in requirements.txt).
+drake==1.27.0
+pydot==2.0.0
+
+# --- sampling-based baselines -----------------------------------------------
+# Explicit collision checking, used by 'custom-prm' and the OMPL environment.
+python-fcl==0.7.0.6
+
+# Klampt baselines ('klampt-prm', 'klampt-wco').
+klampt
+
+# --- not installable from PyPI ----------------------------------------------
+# OMPL baselines ('ompl-rrt', 'ompl-rrt_star', 'ompl-prm') need OMPL built with
+# its Python bindings:          https://ompl.kavrakilab.org/installation.html
+#
+# PythonCDT is required by the Klampt baselines and must be built from source;
+# it is vendored as a git submodule at dependencies/PythonCDT. See the README.

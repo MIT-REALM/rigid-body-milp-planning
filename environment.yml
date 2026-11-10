@@ -1,0 +1,31 @@
+# Conda environment for the core method. Baseline planners are optional; see
+# requirements-baselines.txt and the README.
+#
+#     conda env create -f environment.yml
+#     conda activate mip-mp
+name: mip-mp
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - numpy=1.25.0
+  - scipy=1.13.0
+  - matplotlib=3.7.2
+  - networkx=3.2.1
+  - pyyaml=6.0
+  - tqdm=4.66.4
+  - pillow=10.0.0
+  - shapely=2.0.1
+  - pip:
+      - trimesh==3.22.3
+      - manifold3d==2.5.1
+      - gurobipy==10.0.2
+      - cvxpy==1.5.3
+      - Mosek
+      - qpsolvers==4.3.2
+      - osqp==0.6.7
+      - open3d==0.18.0
+      - opencv-python==4.7.0.72
+      - lightning==2.2.5
+      - pytorch-lightning==2.2.5

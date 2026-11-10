@@ -1,0 +1,46 @@
+# Core dependencies: everything needed to run the MILP planner from the paper
+# (method `ciris_ours`) in both 2D and 3D.
+#
+# Versions are the ones this code was developed and run against. They are pinned
+# with `==` for reproducibility; relax to `>=` if you only want it to work.
+#
+# This set was installed and imported successfully in a clean Python 3.9 venv on
+# macOS/arm64. The two licensed solvers were not exercised, only imported.
+#
+# Two of these need a licence (both are free for academic use, see README):
+#   * gurobipy -- Gurobi, solves every MILP
+#   * Mosek    -- SOCP solver used by cvxpy for the inscribed-ellipsoid step
+
+numpy==1.25.0
+scipy==1.13.0
+matplotlib==3.7.2
+networkx==3.2.1
+PyYAML==6.0
+tqdm==4.66.4
+Pillow==10.0.0
+
+# geometry
+shapely==2.0.1
+trimesh==3.22.3
+manifold3d==2.5.1          # boolean engine trimesh uses for 3D polytope intersection
+
+# optimisation
+gurobipy==10.0.2           # MILP solver (licence required)
+cvxpy==1.5.3               # inscribed-ellipsoid SOCP in constrained_iris
+Mosek                      # cvxpy solver backend (licence required; version unpinned)
+qpsolvers==4.3.2           # closest-point-on-obstacle QP
+osqp==0.6.7                # qpsolvers backend actually selected in the code
+# The cvxpy pin is bounded on both sides. Below 1.3 it cannot import against
+# scipy >= 1.11 (it reaches for the removed `scipy.sparse.spmatrix.__div__`);
+# above 1.7.2 it requires osqp >= 1.0, whose API qpsolvers 4.3.2 does not speak.
+
+# rendering (3D figures and videos; also imported by utils/color_config)
+open3d==0.18.0
+opencv-python==4.7.0.72    # writes the 3D demo .mp4 in eval_3D.py
+
+# profiling / seeding
+# Both distributions are required as the code stands: algorithm/ and milp_model/
+# import `lightning.pytorch.profilers.SimpleProfiler`, while eval_2D.py calls
+# `pytorch_lightning.seed_everything`.
+lightning==2.2.5
+pytorch-lightning==2.2.5

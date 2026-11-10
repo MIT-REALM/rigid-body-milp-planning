@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Jupyter
+.ipynb_checkpoints
+
+# Solver logs and licences -- never commit these
+*.log
+*.lic
+mosek/
+
+# Generated results.
+# Figures and cached regions are written into result/ and figures/ at run time.
+# The directory layout is kept (via .gitkeep) because the code writes into it.
+result/**/*.pdf
+result/**/*.png
+result/**/*.pkl
+figures/*.pdf
+figures/*.png
+peg3d_path.pkl
+test.png
+testt.png
