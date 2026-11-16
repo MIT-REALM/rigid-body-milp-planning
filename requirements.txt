@@ -43,4 +43,4 @@ opencv-python==4.7.0.72    # writes the 3D demo .mp4 in eval_3D.py
 # import `lightning.pytorch.profilers.SimpleProfiler`, while eval_2D.py calls
 # `pytorch_lightning.seed_everything`.
 lightning==2.2.5
-pytorch-lightning==2.2.5
+pytorch-lightning==2.6.1
